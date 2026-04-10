@@ -4,13 +4,19 @@ import { ArrowDown } from 'lucide-react';
 export default function Hero() {
   return (
     <div className="relative h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] m-4 sm:m-6 overflow-hidden bg-black rounded-[2rem] sm:rounded-[3rem]">
-      {/* Image Background */}
+      {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        <img
-          src="/dress-1.jpg"
-          alt="أرقى الفساتين السورية"
-          className="w-full h-full object-cover object-top"
-        />
+        {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover scale-[1.15] origin-bottom"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
         
         {/* Gradient overlays */}
         {/* Main overlay for text readability */}
