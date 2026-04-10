@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Amiri", ui-serif, Georgia, serif;
+
+  --color-luxury-black: #000000;
+  --color-luxury-white: #FFFFFF;
+  --color-luxury-gray-100: #F5F5F5;
+  --color-luxury-gray-300: #E0E0E0;
+  --color-luxury-gray-500: #757575;
+  --color-luxury-gray-800: #212121;
+}
+
+body {
+  background-color: var(--color-luxury-white);
+  color: var(--color-luxury-black);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for a premium feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-luxury-gray-100);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-luxury-gray-800);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-luxury-black);
+}
+
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
+}
+.animate-slow-zoom {
+  animation: slowZoom 20s ease-in-out infinite alternate;
+}
