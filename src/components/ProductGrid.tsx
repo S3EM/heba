@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Heart } from 'lucide-react';
 
+// Product List Array
 const DRESSES = [
   { id: 1, name: 'فستان سهرة ملكي مطرز', price: 500, currency: 'EGP', image: '/dress-1.jpg' },
   { id: 2, name: 'فستان مخملي بقصة حورية البحر', price: 500, currency: 'EGP', image: '/dress-2.jpg' },

@@ -18,7 +18,7 @@ export default function Navbar() {
     <nav className="fixed top-0 w-full z-50 transition-all duration-500 p-4 sm:p-6 pointer-events-none">
       <div className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 rounded-[2rem] transition-all duration-500 pointer-events-auto ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-2' : 'bg-transparent py-2'}`}>
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
+          {/* Brand Logo */}
           <Link to="/" className="flex items-center gap-2 group">
             <img src="/logo.png" alt="كوني اجمل" className="h-10 w-auto object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
             <span className={`font-serif text-3xl font-bold tracking-wider transition-colors duration-500 group-hover:text-yellow-400 ${scrolled ? 'text-black' : 'text-white'}`}>كوني اجمل</span>
