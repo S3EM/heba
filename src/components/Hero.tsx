@@ -6,12 +6,12 @@ export default function Hero() {
     <div className="relative h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] m-4 sm:m-6 overflow-hidden bg-black rounded-[2rem] sm:rounded-[3rem]">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges. Forced update for GitHub Sync. */}
+        {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges. Explicit boolean attributes for strict browsers. */}
         <video
-          autoPlay
-          loop
-          muted
-          playsInline
+          autoPlay={true}
+          loop={true}
+          muted={true}
+          playsInline={true}
           poster="/dress-1.jpg"
           className="w-full h-full object-cover scale-[1.15] origin-bottom"
         >
