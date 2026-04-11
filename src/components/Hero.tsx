@@ -12,10 +12,10 @@ export default function Hero() {
           loop={true}
           muted={true}
           playsInline={true}
-          poster="/dress-1.jpg"
+          poster="dress-1.jpg"
           className="w-full h-full object-cover scale-[1.15] origin-bottom"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
