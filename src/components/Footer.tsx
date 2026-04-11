@@ -53,7 +53,14 @@ export default function Footer() {
               <li>هاتف: +201030692713</li>
               <li className="flex items-start justify-center md:justify-start gap-2">
                 <MapPin className="w-5 h-5 text-yellow-400 shrink-0 mt-0.5" />
-                <span>العنوان: القليوبية، الخانكة، أبو زعبل البلد - بجوار ملعب النبراوي.</span>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=30.2525,31.3486" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 transition-colors"
+                >
+                  العنوان: عزبة الأبيض، أبو زعبل، مركز الخانكة، القليوبية
+                </a>
               </li>
             </ul>
           </div>
