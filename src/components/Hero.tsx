@@ -6,7 +6,7 @@ export default function Hero() {
     <div className="relative h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] m-4 sm:m-6 overflow-hidden bg-black rounded-[2rem] sm:rounded-[3rem]">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges */}
+        {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges. */}
         <video
           autoPlay
           loop
