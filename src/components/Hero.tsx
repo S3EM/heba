@@ -6,7 +6,6 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Force video to play to bypass some browser autoplay restrictions
     if (videoRef.current) {
       videoRef.current.play().catch(err => console.log("Autoplay prevented:", err));
     }
@@ -15,36 +14,34 @@ export default function Hero() {
   return (
     <div 
       className="relative h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] m-4 sm:m-6 overflow-hidden bg-black rounded-[2rem] sm:rounded-[3rem]"
-      style={{ backgroundImage: "url('/images/dress-1.jpg')", backgroundSize: 'cover', backgroundPosition: 'top' }}
     >
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges. Explicit boolean attributes for strict browsers. Forced update to restore public folder. */}
         <video
           ref={videoRef}
-          autoPlay={true}
-          loop={true}
-          muted={true}
-          playsInline={true}
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
           poster="/images/dress-1.jpg"
-          className="w-full h-full object-cover scale-[1.15] origin-bottom"
+          className="w-full h-full object-cover scale-[1.15] origin-bottom z-0"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
-        {/* Gradient overlays */}
-        {/* Main overlay for text readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* الطبقة السوداء الشفافة عشان الكلام يبان */}
+        <div className="absolute inset-0 bg-black/40 z-10"></div>
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end items-start pb-32 md:pb-40">
+      <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end items-start pb-32 md:pb-40">
         <motion.div 
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, delay: 0.2 }}
-          className="max-w-4xl text-right"
+          className="max-w-4xl text-right w-full"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-12">
             أناقة لا تنسى مع<br/>أرقى الفساتين السورية
