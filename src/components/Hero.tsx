@@ -15,7 +15,7 @@ export default function Hero() {
   return (
     <div 
       className="relative h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] m-4 sm:m-6 overflow-hidden bg-black rounded-[2rem] sm:rounded-[3rem]"
-      style={{ backgroundImage: "url('/dress-1.jpg')", backgroundSize: 'cover', backgroundPosition: 'top' }}
+      style={{ backgroundImage: "url('/images/dress-1.jpg')", backgroundSize: 'cover', backgroundPosition: 'top' }}
     >
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -26,12 +26,12 @@ export default function Hero() {
           loop={true}
           muted={true}
           playsInline={true}
-          poster="/dress-1.jpg"
+          poster="/images/dress-1.jpg"
           className="w-full h-full object-cover scale-[1.15] origin-bottom"
         >
           <source src="https://res.cloudinary.com/demo/video/upload/hero-video.mp4" type="video/mp4" />
           <source src="https://trackview.assets.sh/drive/v1/direct?id=1kOL6JvFArDRXsYgbCWD-6pDxeoaqEP9i&type=video/mp4" type="video/mp4" />
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src="/images/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         

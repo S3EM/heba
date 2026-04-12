@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Brand Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <img src="/logo.png" alt="كوني اجمل" className="h-10 w-auto object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
+            <img src="/images/logo.png" alt="كوني اجمل" className="h-10 w-auto object-contain" onError={(e) => e.currentTarget.style.display = 'none'} />
             <span className={`font-serif text-3xl font-bold tracking-wider transition-colors duration-500 group-hover:text-yellow-400 ${scrolled ? 'text-black' : 'text-white'}`}>كوني اجمل</span>
           </Link>
 
