@@ -6,8 +6,9 @@ export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    // محاولة تشغيل الفيديو برمجياً لضمان العمل على جميع المتصفحات
     if (videoRef.current) {
-      videoRef.current.play().catch(err => console.log("Autoplay prevented:", err));
+      videoRef.current.play().catch(err => console.log("Autoplay check:", err));
     }
   }, []);
 
@@ -15,7 +16,7 @@ export default function Hero() {
     <div 
       className="relative h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] m-4 sm:m-6 overflow-hidden bg-black rounded-[2rem] sm:rounded-[3rem]"
     >
-      {/* Video Background */}
+      {/* خلفية الفيديو - Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <video
           ref={videoRef}
@@ -24,18 +25,18 @@ export default function Hero() {
           muted
           playsInline
           preload="auto"
-          poster="/images/dress-1.jpg"
           className="w-full h-full object-cover scale-[1.15] origin-bottom z-0"
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          {/* تم تحديث المسار للاسم الجديد hero-v2.mp4 */}
+          <source src="/hero-v2.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
-        {/* الطبقة السوداء الشفافة عشان الكلام يبان */}
+        {/* طبقة تظليل لضمان وضوح النص */}
         <div className="absolute inset-0 bg-black/40 z-10"></div>
       </div>
 
-      {/* Content */}
+      {/* المحتوى النصي - Content */}
       <div className="relative z-20 h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-end items-start pb-32 md:pb-40">
         <motion.div 
           initial={{ opacity: 0, x: 50 }}
