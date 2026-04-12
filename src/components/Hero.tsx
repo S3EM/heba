@@ -19,7 +19,7 @@ export default function Hero() {
     >
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
-        {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges. Explicit boolean attributes for strict browsers. */}
+        {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges. Explicit boolean attributes for strict browsers. Forced update to restore public folder. */}
         <video
           ref={videoRef}
           autoPlay={true}
