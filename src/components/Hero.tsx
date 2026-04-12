@@ -1,13 +1,27 @@
 import { motion } from 'motion/react';
 import { ArrowDown } from 'lucide-react';
+import { useEffect, useRef } from 'react';
 
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Force video to play to bypass some browser autoplay restrictions
+    if (videoRef.current) {
+      videoRef.current.play().catch(err => console.log("Autoplay prevented:", err));
+    }
+  }, []);
+
   return (
-    <div className="relative h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] m-4 sm:m-6 overflow-hidden bg-black rounded-[2rem] sm:rounded-[3rem]">
+    <div 
+      className="relative h-[calc(100vh-2rem)] sm:h-[calc(100vh-3rem)] m-4 sm:m-6 overflow-hidden bg-black rounded-[2rem] sm:rounded-[3rem]"
+      style={{ backgroundImage: "url('/dress-1.jpg')", backgroundSize: 'cover', backgroundPosition: 'top' }}
+    >
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         {/* We use scale-[1.15] to zoom in and hide the PixVerse watermark at the edges. Explicit boolean attributes for strict browsers. */}
         <video
+          ref={videoRef}
           autoPlay={true}
           loop={true}
           muted={true}
@@ -15,7 +29,9 @@ export default function Hero() {
           poster="/dress-1.jpg"
           className="w-full h-full object-cover scale-[1.15] origin-bottom"
         >
-          <source src="https://trackview.assets.sh/drive/v1/direct?id=1kOL6JvFArDRXsYgbCWD-6pDxeoaqEP9i" type="video/mp4" />
+          <source src="https://res.cloudinary.com/demo/video/upload/hero-video.mp4" type="video/mp4" />
+          <source src="https://trackview.assets.sh/drive/v1/direct?id=1kOL6JvFArDRXsYgbCWD-6pDxeoaqEP9i&type=video/mp4" type="video/mp4" />
+          <source src="/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         
