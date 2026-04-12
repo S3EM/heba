@@ -29,8 +29,6 @@ export default function Hero() {
           poster="/images/dress-1.jpg"
           className="w-full h-full object-cover scale-[1.15] origin-bottom"
         >
-          <source src="https://res.cloudinary.com/demo/video/upload/hero-video.mp4" type="video/mp4" />
-          <source src="https://trackview.assets.sh/drive/v1/direct?id=1kOL6JvFArDRXsYgbCWD-6pDxeoaqEP9i&type=video/mp4" type="video/mp4" />
           <source src="/images/hero-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
