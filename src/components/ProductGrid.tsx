@@ -3,41 +3,16 @@ import { motion } from 'motion/react';
 import { Heart } from 'lucide-react';
 
 // Product List Array
-const DRESSES = [
-  { id: 1, name: 'فستان سهرة ملكي مطرز', price: 500, currency: 'EGP', image: '/images/dress-1.jpg' },
-  { id: 2, name: 'فستان مخملي بقصة حورية البحر', price: 500, currency: 'EGP', image: '/images/dress-2.jpg' },
-  { id: 3, name: 'فستان حرير ناعم بفتحة جانبية', price: 500, currency: 'EGP', image: '/images/dress-3.jpg' },
-  { id: 4, name: 'فستان شيفون مرصع بالكريستال', price: 500, currency: 'EGP', image: '/images/dress-4.jpg' },
-  { id: 5, name: 'فستان كلاسيكي بأكمام دانتيل', price: 500, currency: 'EGP', image: '/images/dress-5.jpg' },
-  { id: 6, name: 'فستان منفوش بتطريز ذهبي', price: 500, currency: 'EGP', image: '/images/dress-6.jpg' },
-  { id: 7, name: 'فستان ساتان لامع بكتف واحد', price: 500, currency: 'EGP', image: '/images/dress-7.jpg' },
-  { id: 8, name: 'فستان سهرة بتصميم درابيه', price: 500, currency: 'EGP', image: '/images/dress-8.jpg' },
-  { id: 9, name: 'فستان تول مطرز بالورود', price: 500, currency: 'EGP', image: '/images/dress-9.jpg' },
-  { id: 10, name: 'فستان بقصة أميرات ديزني', price: 500, currency: 'EGP', image: '/images/dress-10.jpg' },
-  { id: 11, name: 'فستان سهرة أسود كلاسيكي', price: 500, currency: 'EGP', image: '/images/dress-11.jpg' },
-  { id: 12, name: 'فستان مرصع بالترتر اللامع', price: 500, currency: 'EGP', image: '/images/dress-12.jpg' },
-  { id: 13, name: 'فستان بأكمام منفوخة وتطريز', price: 500, currency: 'EGP', image: '/images/dress-13.jpg' },
-  { id: 14, name: 'فستان سهرة عنابي فاخر', price: 500, currency: 'EGP', image: '/images/dress-14.jpg' },
-  { id: 15, name: 'فستان بقصة مستقيمة وظهر مكشوف', price: 500, currency: 'EGP', image: '/images/dress-15.jpg' },
-  { id: 16, name: 'فستان شيفون بكسرات ناعمة', price: 500, currency: 'EGP', image: '/images/dress-16.jpg' },
-  { id: 17, name: 'فستان سهرة زمردي جذاب', price: 500, currency: 'EGP', image: '/images/dress-17.jpg' },
-  { id: 18, name: 'فستان مطرز باللؤلؤ الفاخر', price: 500, currency: 'EGP', image: '/images/dress-18.jpg' },
-  { id: 19, name: 'فستان كريب بتصميم عصري', price: 500, currency: 'EGP', image: '/images/dress-19.jpg' },
-  { id: 20, name: 'فستان سهرة بياقة V عميقة', price: 500, currency: 'EGP', image: '/images/dress-20.jpg' },
-  { id: 21, name: 'فستان دانتيل فرنسي راقي', price: 500, currency: 'EGP', image: '/images/dress-21.jpg' },
-  { id: 22, name: 'فستان بأكمام طويلة وتطريز فضي', price: 500, currency: 'EGP', image: '/images/dress-22.jpg' },
-  { id: 23, name: 'فستان سهرة نيود بتفاصيل لامعة', price: 500, currency: 'EGP', image: '/images/dress-23.jpg' },
-  { id: 24, name: 'فستان بقصة الكورسيه الجذابة', price: 500, currency: 'EGP', image: '/images/dress-24.jpg' },
-  { id: 25, name: 'فستان سهرة كحلي مرصع بالنجوم', price: 500, currency: 'EGP', image: '/images/dress-25.jpg' },
-  { id: 26, name: 'فستان بتنورة متدرجة الطبقات', price: 500, currency: 'EGP', image: '/images/dress-26.jpg' },
-  { id: 27, name: 'فستان سهرة بكتف مكشوف', price: 500, currency: 'EGP', image: '/images/dress-27.jpg' },
-  { id: 28, name: 'فستان حريري بتصميم انسيابي', price: 500, currency: 'EGP', image: '/images/dress-28.jpg' },
-  { id: 29, name: 'فستان سهرة فاخر بتطريز يدوي', price: 500, currency: 'EGP', image: '/images/dress-29.jpg' },
-];
+const DRESSES = Array.from({ length: 29 }, (_, i) => ({
+  id: i + 1,
+  name: `فستان سهرة تصميم ${i + 1}`,
+  price: 500,
+  currency: 'EGP',
+  image: `/images/dress-${i + 1}.jpg`
+}));
 
 export default function ProductGrid() {
   const [favorites, setFavorites] = useState<Record<number, boolean>>({});
-  const [showAll, setShowAll] = useState(false);
 
   const toggleFavorite = (e: React.MouseEvent, id: number) => {
     e.stopPropagation();
@@ -46,8 +21,6 @@ export default function ProductGrid() {
       [id]: !prev[id]
     }));
   };
-
-  const displayedDresses = showAll ? DRESSES : DRESSES.slice(0, 6);
 
   return (
     <div id="collection" className="bg-white py-24 sm:py-32 rounded-[2rem] sm:rounded-[3rem] shadow-sm m-4 sm:m-6 overflow-hidden">
@@ -60,7 +33,7 @@ export default function ProductGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-20 gap-x-12">
-          {displayedDresses.map((dress, index) => (
+          {DRESSES.map((dress, index) => (
             <motion.div 
               key={dress.id}
               layout
@@ -103,17 +76,6 @@ export default function ProductGrid() {
             </motion.div>
           ))}
         </div>
-
-        {!showAll && DRESSES.length > 6 && (
-          <div className="mt-20 flex justify-center">
-            <button
-              onClick={() => setShowAll(true)}
-              className="bg-black text-white px-10 py-4 rounded-full hover:bg-gray-800 transition-colors font-sans tracking-widest uppercase text-sm shadow-md"
-            >
-              مشاهدة الكل
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );
