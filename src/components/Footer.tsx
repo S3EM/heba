@@ -59,7 +59,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-yellow-400 transition-colors"
                 >
-                  العنوان: عزبة الأبيض، أبو زعبل، مركز الخانكة، القليوبية
+                  العنوان: القليوبية - أبو زعبل (بجوار ملعب النبراوي)
                 </a>
               </li>
             </ul>
