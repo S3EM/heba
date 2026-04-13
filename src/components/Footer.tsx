@@ -54,7 +54,7 @@ export default function Footer() {
               <li className="flex items-start justify-center md:justify-start gap-2">
                 <MapPin className="w-5 h-5 text-yellow-400 shrink-0 mt-0.5" />
                 <a 
-                  href="https://www.google.com/maps/search/?api=1&query=30.2525,31.3486" 
+                  href="https://maps.app.goo.gl/nydwUGM2JvdzUfQ59" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-yellow-400 transition-colors"
@@ -68,7 +68,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-24 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm font-light tracking-widest">
-          <p>&copy; {new Date().getFullYear()} كوني اجمل لفساتين السهرة. جميع الحقوق محفوظة.</p>
+          <p>© {new Date().getFullYear()} كوني اجمل لفساتين السهرة. جميع الحقوق محفوظة.</p>
         </div>
       </div>
     </footer>
