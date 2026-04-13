@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion'; // التعديل هنا لضمان الاستقرار
+import { motion } from 'motion/react';
 import { Heart } from 'lucide-react';
 
 // Product List Array
@@ -8,11 +8,12 @@ const DRESSES = Array.from({ length: 29 }, (_, i) => ({
   name: `فستان سهرة تصميم ${i + 1}`,
   price: 500,
   currency: 'EGP',
-  image: `/images/dress-${i + 1}.jpg` // المسار مطابق لمجلدك في GitHub
+  image: `/images/dress-${i + 1}.jpg`
 }));
 
 export default function ProductGrid() {
   const [favorites, setFavorites] = useState<Record<number, boolean>>({});
+  const [showAll, setShowAll] = useState(false);
 
   const toggleFavorite = (e: React.MouseEvent, id: number) => {
     e.stopPropagation();
@@ -26,14 +27,16 @@ export default function ProductGrid() {
     <div id="collection" className="bg-white py-24 sm:py-32 rounded-[2rem] sm:rounded-[3rem] shadow-sm m-4 sm:m-6 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-24">
-          <h2 className="text-4xl font-serif text-black sm:text-5xl uppercase tracking-widest">
-            أحدث التصاميم
-          </h2>
+          <a href="https://maps.app.goo.gl/nydwUGM2JvdzUfQ59" target="_blank" rel="noopener noreferrer" className="inline-block hover:opacity-80 transition-opacity">
+            <h2 className="text-4xl font-serif text-black sm:text-5xl uppercase tracking-widest">
+              أحدث التصاميم
+            </h2>
+          </a>
           <div className="w-24 h-1 bg-black mx-auto mt-8"></div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-y-20 gap-x-12">
-          {DRESSES.map((dress, index) => (
+          {(showAll ? DRESSES : DRESSES.slice(0, 3)).map((dress, index) => (
             <motion.div 
               key={dress.id}
               layout
@@ -47,12 +50,7 @@ export default function ProductGrid() {
                 <img
                   src={dress.image}
                   alt={dress.name}
-                  loading="lazy" // تحسين سرعة الموقع
                   className="w-full h-[600px] object-cover object-center group-hover:scale-110 transition-all duration-700 ease-out"
-                  onError={(e) => {
-                    // حل احتياطي لو الصورة منورتش
-                    (e.target as HTMLImageElement).src = 'https://via.placeholder.com/600x800?text=جاري+تحميل+الفستان';
-                  }}
                 />
                 <button 
                   onClick={(e) => toggleFavorite(e, dress.id)}
@@ -67,10 +65,7 @@ export default function ProductGrid() {
                 <h3 className="text-xl text-black font-serif">
                   {dress.name}
                 </h3>
-                <p className="mt-3 text-lg text-gray-500 tracking-widest font-medium">
-                  {dress.price} <span className="text-sm">{dress.currency}</span>
-                </p>
-                {/* دوائر الألوان */}
+                {/* Color Circles */}
                 <div className="flex gap-3 mt-4 justify-center items-center">
                   <span className="w-5 h-5 rounded-full bg-[#E5E4E2] border border-gray-300 shadow-sm cursor-pointer hover:scale-110 transition-transform" title="فضي"></span>
                   <span className="w-5 h-5 rounded-full bg-black border border-gray-300 shadow-sm cursor-pointer hover:scale-110 transition-transform" title="أسود"></span>
@@ -81,6 +76,17 @@ export default function ProductGrid() {
             </motion.div>
           ))}
         </div>
+
+        {!showAll && (
+          <div className="mt-20 flex justify-center">
+            <button
+              onClick={() => setShowAll(true)}
+              className="bg-black text-white px-10 py-4 rounded-full hover:bg-[#D4AF37] hover:text-black transition-colors duration-300 font-sans tracking-widest uppercase text-sm shadow-md"
+            >
+              See More
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
