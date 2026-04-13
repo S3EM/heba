@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion'; // التعديل هنا لضمان الاستقرار
 import { Heart } from 'lucide-react';
 
 // Product List Array
@@ -8,7 +8,7 @@ const DRESSES = Array.from({ length: 29 }, (_, i) => ({
   name: `فستان سهرة تصميم ${i + 1}`,
   price: 500,
   currency: 'EGP',
-  image: `/images/dress-${i + 1}.jpg`
+  image: `/images/dress-${i + 1}.jpg` // المسار مطابق لمجلدك في GitHub
 }));
 
 export default function ProductGrid() {
@@ -47,7 +47,12 @@ export default function ProductGrid() {
                 <img
                   src={dress.image}
                   alt={dress.name}
+                  loading="lazy" // تحسين سرعة الموقع
                   className="w-full h-[600px] object-cover object-center group-hover:scale-110 transition-all duration-700 ease-out"
+                  onError={(e) => {
+                    // حل احتياطي لو الصورة منورتش
+                    (e.target as HTMLImageElement).src = 'https://via.placeholder.com/600x800?text=جاري+تحميل+الفستان';
+                  }}
                 />
                 <button 
                   onClick={(e) => toggleFavorite(e, dress.id)}
@@ -65,7 +70,7 @@ export default function ProductGrid() {
                 <p className="mt-3 text-lg text-gray-500 tracking-widest font-medium">
                   {dress.price} <span className="text-sm">{dress.currency}</span>
                 </p>
-                {/* Color Circles */}
+                {/* دوائر الألوان */}
                 <div className="flex gap-3 mt-4 justify-center items-center">
                   <span className="w-5 h-5 rounded-full bg-[#E5E4E2] border border-gray-300 shadow-sm cursor-pointer hover:scale-110 transition-transform" title="فضي"></span>
                   <span className="w-5 h-5 rounded-full bg-black border border-gray-300 shadow-sm cursor-pointer hover:scale-110 transition-transform" title="أسود"></span>
