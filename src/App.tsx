@@ -5,7 +5,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ChatBot from './components/ChatBot';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
-import Admin from './pages/Admin'; // السطر الجديد لاستدعاء لوحة التحكم
+import Admin from './pages/Admin';
 
 export default function App() {
   return (
@@ -16,8 +16,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/collection" element={<Collection />} />
-            {/* السطر اللي جاي ده هو اللي بيعمل صفحة لوحة التحكم */}
-            <Route path="/admin-heba" element={<Admin />} /> 
+            <Route path="/admin-heba" element={<Admin />} />
           </Routes>
         </main>
         <Footer />
