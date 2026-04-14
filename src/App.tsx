@@ -2,9 +2,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
-import ChatBot from './components/ChatBot'; // السطر ده اللي ضفناه
+import ChatBot from './components/ChatBot';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
+import Admin from './pages/Admin'; // السطر الجديد لاستدعاء لوحة التحكم
 
 export default function App() {
   return (
@@ -15,11 +16,13 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/collection" element={<Collection />} />
+            {/* السطر اللي جاي ده هو اللي بيعمل صفحة لوحة التحكم */}
+            <Route path="/admin-heba" element={<Admin />} /> 
           </Routes>
         </main>
         <Footer />
         <WhatsAppButton />
-        <ChatBot /> {/* والسطر ده اللي هيخلي البوت يظهر في الموقع */}
+        <ChatBot />
       </div>
     </Router>
   );
