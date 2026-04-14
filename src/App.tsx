@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppButton from './components/WhatsAppButton';
+import ChatBot from './components/ChatBot'; // السطر ده اللي ضفناه
 import Home from './pages/Home';
 import Collection from './pages/Collection';
 
@@ -18,6 +19,7 @@ export default function App() {
         </main>
         <Footer />
         <WhatsAppButton />
+        <ChatBot /> {/* والسطر ده اللي هيخلي البوت يظهر في الموقع */}
       </div>
     </Router>
   );
