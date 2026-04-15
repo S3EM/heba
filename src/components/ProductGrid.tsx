@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion'; // التصحيح هنا: غيرناها من motion/react لـ framer-motion
 import { Heart } from 'lucide-react';
 
 // Product List Array
