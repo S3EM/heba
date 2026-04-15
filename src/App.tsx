@@ -5,7 +5,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ChatBot from './components/ChatBot';
 import Home from './pages/Home';
 import Collection from './pages/Collection';
-import Admin from './pages/Admin'; // تأكد أن الحرف A كبير
+import Admin from './pages/AdminPage';
 import './index.css';
 
 export default function App() {
