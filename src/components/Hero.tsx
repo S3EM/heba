@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion'; // التغيير هنا: من motion/react لـ framer-motion
 import { ArrowDown } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 
